@@ -18,8 +18,6 @@ public class PostService {
 
 	@Transactional(readOnly = true)
 	public Page<Post> getPostList(Pageable pageable){
-		Page<Post> posts = postRepository.findAll(pageable);
-		posts.forEach(post -> post.getComments().size());
 		return postRepository.findAll(pageable);
 	}
 }
