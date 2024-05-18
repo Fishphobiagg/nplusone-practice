@@ -1,15 +1,15 @@
 -- Post 데이터 삽입
-INSERT INTO post (id, title) VALUES
-                                 (1, 'Post 1'),
-                                 (2, 'Post 2'),
-                                 (3, 'Post 3'),
-                                 (4, 'Post 4'),
-                                 (5, 'Post 5'),
-                                 (6, 'Post 6'),
-                                 (7, 'Post 7'),
-                                 (8, 'Post 8'),
-                                 (9, 'Post 9'),
-                                 (10, 'Post 10');
+INSERT INTO post (id, title, content) VALUES
+                                 (1, 'Post 1', 'ㅎㅇ'),
+                                 (2, 'Post 2', 'ㅎㅇ'),
+                                 (3, 'Post 3', 'ㅎㅇ'),
+                                 (4, 'Post 4', 'ㅎㅇ'),
+                                 (5, 'Post 5', 'ㅎㅇ'),
+                                 (6, 'Post 6', 'ㅎㅇ'),
+                                 (7, 'Post 7', 'ㅎㅇ'),
+                                 (8, 'Post 8', 'ㅎㅇ'),
+                                 (9, 'Post 9', 'ㅎㅇ'),
+                                 (10, 'Post 10', 'ㅎㅇ');
 
 -- Comment 데이터 삽입
 INSERT INTO comment (id, content, post_id) VALUES
