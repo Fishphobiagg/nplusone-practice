@@ -12,17 +12,15 @@ public class PostResponse {
 
 	private String title;
 	private String content;
-
-	public static PostResponse of(String title, String content){
-		return new PostResponse(title, content);
-	}
+	private int commentSize;
 
 	public static PostResponse of(Post post){
-		return new PostResponse(post.getTitle(), post.getContent());
+		return new PostResponse(post.getTitle(), post.getContent(), post.getComments().size());
 	}
 
-	private PostResponse(String title, String content){
+	private PostResponse(String title, String content, int size){
 		this.title = title;
 		this.content = content;
+		this.commentSize = size;
 	}
 }
