@@ -27,7 +27,7 @@ public class PostController {
 	@GetMapping
 	public ResponseEntity<PostListResponse> getPostList(@RequestParam int page, @RequestParam int size){
 		PageRequest pageRequest = PageRequest.of(page, size);
-		PostListResponse postListResponse = postService.getPostList(pageRequest);
+		PostListResponse postListResponse = postService.findPostList(pageRequest);
 		return ResponseEntity.ok(postListResponse);
 	}
 
