@@ -4,7 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.PageRequest;
 
 import com.example.n1problemexample.controller.PostController;
 
@@ -15,7 +14,7 @@ public class PostControllerTest {
 	private PostController postController;
 
 	@Test
-	@DisplayName("API 호출시 N+1 문제 발생 여부에 대해서 테스트")
+	@DisplayName("컨트롤러 메서드 호출하여 N+1 문제가 발생하는지 로그 확인")
 	void FindPostApiNPlusOneTest(){
 		int page = 0;
 		int size = 10;
