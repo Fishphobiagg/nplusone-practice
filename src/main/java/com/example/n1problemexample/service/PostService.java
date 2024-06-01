@@ -26,7 +26,7 @@ public class PostService {
 
 	@Transactional(readOnly = true)
 	public PostListResponse findPostList(Pageable pageable){
-		Page<Post> posts = postRepository.findAll(pageable);
+		Page<Post> posts = postRepository.findAllWithComments(pageable);
 		PostListResponse postListResponse = PostListResponse.from(posts);
 		return postListResponse;
 	}

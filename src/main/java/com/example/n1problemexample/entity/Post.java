@@ -28,9 +28,8 @@ public class Post {
 	private String title;
 	private String content;
 
-	@OneToMany(mappedBy = "post", fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "post", fetch = FetchType.EAGER)
 	private List<Comment> comments = new ArrayList<>();
-
 
 	@Builder
 	public Post(String title, String content){
