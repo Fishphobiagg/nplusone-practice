@@ -5,9 +5,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.n1problemexample.dto.PostDetailResponse;
 import com.example.n1problemexample.dto.PostListResponse;
 import com.example.n1problemexample.entity.Post;
+import com.example.n1problemexample.repository.PostCustomRepository;
 import com.example.n1problemexample.repository.PostRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -17,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 public class PostService {
 
 	private final PostRepository postRepository;
+	private final PostCustomRepository postCustomRepository;
 
 	@Transactional(readOnly = true)
 	public Post findById(Long id){
@@ -32,8 +33,9 @@ public class PostService {
 	}
 
 	@Transactional(readOnly = true)
-	public PostDetailResponse getPostDetail(Long postId){
-		Post post = this.findById(postId);
-		return PostDetailResponse.from(post);
+	public PostListResponse findPostListByQuerydsl(Pageable pageable){
+		Page<Post> posts = postCustomRepository.findAllWithComments(pageable);
+		PostListResponse postListResponse = PostListResponse.from(posts);
+		return postListResponse;
 	}
 }

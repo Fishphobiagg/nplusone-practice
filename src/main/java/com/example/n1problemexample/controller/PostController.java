@@ -31,9 +31,10 @@ public class PostController {
 		return ResponseEntity.ok(postListResponse);
 	}
 
-	@GetMapping("/{postId}")
-	public ResponseEntity<PostDetailResponse> getPostDetail(@PathVariable Long postId){
-		PostDetailResponse postDetailResponse = postService.getPostDetail(postId);
-		return ResponseEntity.ok(postDetailResponse);
+	@GetMapping("1")
+	public ResponseEntity<PostListResponse> getPostListByQuerydsl(@RequestParam int page, @RequestParam int size){
+		PageRequest pageRequest = PageRequest.of(page, size);
+		PostListResponse postListResponse = postService.findPostListByQuerydsl(pageRequest);
+		return ResponseEntity.ok(postListResponse);
 	}
 }
